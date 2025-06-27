@@ -1,6 +1,8 @@
 export default {
   data() {
-    return { tasks: [] };
+    return {
+      tasks: []
+    };
   },
   methods: {
     addTask(task) { this.tasks.push(task); },

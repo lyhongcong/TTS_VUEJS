@@ -1,26 +1,27 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div id="app" class="app-root">
+    <ErrorBoundary>
+      <router-view />
+    </ErrorBoundary>
+  </div>
 </template>
 
-<script>
-import HelloWorld from './components/HelloWorld.vue'
-
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
-}
+<script setup>
+import { provide } from 'vue';
+import ErrorBoundary from './components/ErrorBoundary.vue';
+const apiConfig = { url: 'http://localhost:3000' };
+const userSettings = { theme: 'light' };
+provide('apiConfig', apiConfig);
+provide('userSettings', userSettings);
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<style scoped>
+.app-root {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 16px;
+  background: linear-gradient(135deg, #e0e7ff 0%, #f8fafc 100%);
+  border-radius: 18px;
+  box-shadow: 0 4px 32px #0001;
 }
 </style>

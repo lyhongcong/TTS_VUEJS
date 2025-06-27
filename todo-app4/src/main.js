@@ -1,9 +1,7 @@
 import { createApp } from 'vue';
 import App from './App.vue';
-import vFocus from './directives/v-focus';
-import vTooltip from './directives/v-tooltip';
+import router from './router';
 
 const app = createApp(App);
-app.directive('focus', vFocus);
-app.directive('tooltip', vTooltip);
+app.use(router);
 app.mount('#app');
